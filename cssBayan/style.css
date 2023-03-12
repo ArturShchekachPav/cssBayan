@@ -1,0 +1,89 @@
+@import url(./vendor/normalize.css);
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.container__title {
+  font-size: 40px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid grey;
+}
+
+.meme {
+  padding-bottom: 15px;
+border-bottom: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  color: blue;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.meme + .meme {
+  margin-top: 20px;
+}
+
+.meme__image {
+  max-height: 0;
+  visibility: hidden;
+  transition: all 0.4s linear;
+  align-self: center;
+}
+
+.meme__check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+}
+
+.meme__check:checked + .meme__image {
+  visibility: visible;
+  max-height: 200px;
+  max-width: 100%;
+}
+
+.meme__icon {
+  transition: all 0.5s linear;
+}
+
+.meme:has(.meme__check:checked) .meme__icon {
+  transform: rotate(45deg);
+}
+
+.meme:hover .meme__image {
+  visibility: visible;
+  max-height: 200px;
+  max-width: 100%;
+}
+
+.meme:has(.meme__check:hover) .meme__icon {
+  transform: rotate(45deg);
+}
+
+.meme:has(.meme__check:checked) {
+  color: black;
+}
+
+.meme__check:checked + .meme__title {
+  color: black;
+}
+
+.meme__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meme__icon {
+  width: 15px;
+  height: 15px;
+}
